@@ -36,7 +36,7 @@
     align: 'center',
     required: true,
     sortable: true,
-    format: (val) => (store.get('categories', val))
+    format: (val) => (store.get('categories', val).name)
   }
 
  -->
