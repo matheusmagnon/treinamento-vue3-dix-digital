@@ -63,6 +63,16 @@ const essentialLinks = [
     title: 'Painel',
     icon: 'home',
     link: 'home'
+  },
+  {
+    title: 'Categorias',
+    icon: 'category',
+    link: 'categories'
+  },
+  {
+    title: 'Produtos',
+    icon: 'mdi-shopping',
+    link: 'products'
   }
 ]
 

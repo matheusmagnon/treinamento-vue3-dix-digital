@@ -30,10 +30,11 @@
               val => val.length >= 8 || 'Minímo 8 caracteres !',
             ]" />
 
-          <div class="q-gutter-md">
+          <div>
             <q-btn type="submit"
               label="Entrar"
-              color="primary" />
+              color="primary"
+              class="q-mr-md" />
             <q-btn label="Cadastro"
               color="secondary"
               :to="{ name: 'register' }" />
@@ -62,11 +63,10 @@ const form = ref({
 
 const handleSubmit = () => {
   try {
-    const data = store.login(form.value)
+    store.login(form.value)
     router.push({ name: 'home' })
-    notify.success(data.message)
-  } catch (error) {
-    notify.error(error.message)
+  } catch ({ message }) {
+    notify.error(message)
   }
 }
 </script>

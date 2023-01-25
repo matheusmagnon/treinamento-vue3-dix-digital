@@ -50,10 +50,11 @@
               val => val === form.password || 'A senha não corresponde !'
             ]" />
 
-          <div class="q-gutter-md">
+          <div>
             <q-btn type="submit"
-              label="Confirmar"
-              color="primary" />
+              label="Salvar"
+              color="primary"
+              class="q-mr-md" />
             <q-btn label="Voltar"
               color="secondary"
               @click="$router.back()" />
@@ -84,11 +85,11 @@ const form = ref({
 
 const handleSubmit = () => {
   try {
-    const data = store.register(form.value)
-    notify.success(data.message)
+    const { message } = store.register(form.value)
+    notify.success(message)
     router.push({ name: 'login' })
-  } catch (error) {
-    notify.error(error.message)
+  } catch ({ message }) {
+    notify.error(message)
   }
 }
 </script>
