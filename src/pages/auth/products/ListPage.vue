@@ -1,3 +1,46 @@
+<!--
+  Atividade: Finalizar CRUD de Produtos.
+
+  Descrição: CRUD muito semelhante ao CRUD de categorias, com a diferença que
+  na criação e edição do produto será necessário vincular o produto a uma categoria.
+
+  --------------------------------------------------------------------------------------
+
+  Componente de select do quasar: https://quasar.dev/vue-components/select#introduction
+
+  Exemplo select de categorias:
+
+  <q-select v-model="category_id"
+  label="Categorias"
+  option-value="id"
+  option-label="name"
+  :options="store.list('categories')"
+  map-options
+  emit-value
+  lazy-rules="ondemand"
+  :rules="[val => !!val || 'Categoria é obrigatória !']" />
+
+  --------------------------------------------------------------------------------------
+
+  Na listagem do produto será necessário formatar o valor da coluna da tabela pra exibir
+  o nome da categoria com base no id da categoria vinculada ao produto.
+
+  Componente de table do quasar: https://quasar.dev/vue-components/table#introduction
+
+  Exemplo (Isso na definição das colunas da tabela):
+
+  {
+    label: 'Categoria',
+    name: 'category_id',
+    field: 'category_id',
+    align: 'center',
+    required: true,
+    sortable: true,
+    format: (val) => (store.get('categories', val))
+  }
+
+ -->
+
 <template>
   <q-page padding>
     <q-card class="q-pa-md">
@@ -8,69 +51,9 @@
           no-caps
           :to="{ name: 'products-create' }" />
       </div>
-      <div class="q-mt-md">
-        <q-table :rows="rows"
-          :columns="columns"
-          row-key="name"
-          flat />
-      </div>
     </q-card>
   </q-page>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const columns = [
-  {
-    label: 'ID',
-    name: 'id',
-    field: 'id',
-    align: 'left',
-    required: true,
-    sortable: true
-  },
-  {
-    label: 'Nome',
-    name: 'name',
-    field: 'name',
-    align: 'center',
-    required: true,
-    sortable: true
-  },
-  {
-    label: 'Descrição',
-    name: 'description',
-    field: 'description',
-    align: 'center',
-    required: true,
-    sortable: true
-  },
-  {
-    label: 'Dt.Criação',
-    name: 'created_at',
-    field: 'created_at',
-    align: 'center',
-    required: true,
-    sortable: true
-  },
-  {
-    label: 'Dt.Edição',
-    name: 'updated_at',
-    field: 'updated_at',
-    align: 'center',
-    required: true,
-    sortable: true
-  }
-]
-
-const rows = ref([
-  {
-    id: 1,
-    name: 'Sapatos',
-    description: 'Sapatos gerais',
-    created_at: '2023-24-01',
-    updated_at: '2023-24-01'
-  }
-])
 </script>

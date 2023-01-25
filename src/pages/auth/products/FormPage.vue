@@ -1,9 +1,6 @@
 <template>
-  <q-page padding>
-    <div>
-      <div class="text-h6">Produtos</div>
-    </div>
-  </q-page>
+  <div>
+  </div>
 </template>
 
 <script setup>
