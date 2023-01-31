@@ -10,7 +10,7 @@ export const useStorageStore = defineStore(
     const isLogged = ref(false)
     const database = ref({
       categories: [],
-      producs: []
+      products: []
     })
 
     const register = (data) => {
